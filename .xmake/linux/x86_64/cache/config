@@ -1,19 +1,19 @@
 {
-    recheck = false,
     mtimes = {
-        ["xmake/xmake.lua"] = 1715307412,
-        ["xmake.lua"] = 1715304312
+        ["xmake.lua"] = 1715304312,
+        ["xmake/xmake.lua"] = 1715307412
     },
     options = {
-        arch = "x86_64",
-        plat = "linux",
         ndk_stdcxx = true,
+        kind = "static",
+        buildir = "build",
+        ccache = true,
         host = "linux",
         mode = "release",
-        buildir = "build",
-        kind = "static",
-        build_mode = "release",
+        plat = "linux",
         proj_name = "myrcore",
-        ccache = true
-    }
+        arch = "x86_64",
+        build_mode = "release"
+    },
+    recheck = false
 }

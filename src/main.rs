@@ -1,15 +1,26 @@
 #![no_std]
 #![no_main]
-mod lang_items;
-mod sbi;
+#![feature(panic_info_message)]
 
 use core::arch::global_asm;
+use log::*;
+
+#[macro_use]
+mod console;
+mod lang_items;
+mod sbi;
+mod logging;
+
+
 global_asm!(include_str!("entry.asm"));
 
 #[no_mangle] // 避免编译器对名字进行混淆
 pub fn rust_main() -> ! {
     clear_bss();
-    sbi::console_putchar('H' as usize);
+    logging::init();
+    println!("Hello, world!");
+    debug!("Hello, world!");
+    error!("Shutdown machine!");
     sbi::shutdown(false);
 }
 
