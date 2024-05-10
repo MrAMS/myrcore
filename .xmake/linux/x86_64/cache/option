@@ -1,0 +1,64 @@
+{
+    bootloader = {
+        default = "./bootloader/rustsbi-qemu.bin",
+        __sourceinfo_showmenu = { },
+        showmenu = true,
+        __sourceinfo_default = {
+            ["./bootloader/rustsbi-qemu.bin"] = {
+                file = "./xmake/xmake.lua",
+                line = 12
+            }
+        },
+        __scriptdir = "/home/santiego/proj/OS/rCore/myrcore/xmake"
+    },
+    proj_name = {
+        default = "myrcore",
+        __sourceinfo_showmenu = { },
+        showmenu = true,
+        __sourceinfo_default = {
+            myrcore = {
+                file = "./xmake/xmake.lua",
+                line = 8
+            }
+        },
+        __scriptdir = "/home/santiego/proj/OS/rCore/myrcore/xmake"
+    },
+    kernel_entry_pa = {
+        default = "0x80200000",
+        __sourceinfo_showmenu = { },
+        showmenu = true,
+        __sourceinfo_default = {
+            ["0x80200000"] = {
+                file = "./xmake/xmake.lua",
+                line = 16
+            }
+        },
+        __scriptdir = "/home/santiego/proj/OS/rCore/myrcore/xmake"
+    },
+    build_mode = {
+        default = "release",
+        values = {
+            "debug",
+            "release"
+        },
+        __sourceinfo_values = {
+            debug = {
+                file = "./xmake/xmake.lua",
+                line = 4
+            },
+            release = {
+                file = "./xmake/xmake.lua",
+                line = 4
+            }
+        },
+        __sourceinfo_default = {
+            release = {
+                file = "./xmake/xmake.lua",
+                line = 3
+            }
+        },
+        showmenu = true,
+        __sourceinfo_showmenu = { },
+        __scriptdir = "/home/santiego/proj/OS/rCore/myrcore/xmake"
+    }
+}
