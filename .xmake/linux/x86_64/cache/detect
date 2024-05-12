@@ -1,7 +1,0 @@
-{
-    find_program = {
-        gcc = "/usr/lib/ccache/gcc",
-        zig = false,
-        nim = false
-    }
-}

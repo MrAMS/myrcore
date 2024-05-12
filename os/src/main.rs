@@ -11,8 +11,14 @@ mod lang_items;
 mod sbi;
 mod logging;
 
+pub mod batch;
+mod sync;
+pub mod syscall;
+pub mod trap;
 
 global_asm!(include_str!("entry.asm"));
+global_asm!(include_str!("link_app.S"));
+
 
 #[no_mangle] // 避免编译器对名字进行混淆
 pub fn rust_main() -> ! {
@@ -21,7 +27,10 @@ pub fn rust_main() -> ! {
     println!("Hello, world!");
     debug!("Hello, world!");
     error!("Shutdown machine!");
-    sbi::shutdown(false);
+    trap::init();
+    batch::init();
+    batch::run_next_app();
+    // sbi::shutdown(false);
 }
 
 fn clear_bss() {

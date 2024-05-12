@@ -12,4 +12,3 @@ pub fn shutdown(failure: bool) -> ! {
     }
     unreachable!()
 }
-
