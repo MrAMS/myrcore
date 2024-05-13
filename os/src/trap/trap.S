@@ -8,11 +8,8 @@
     .section .text
     .globl __alltraps
     .globl __restore
-    # 4字节对齐(2^2)
     .align 2
-# interrupt handler
 __alltraps:
-    # 交换sp和sscratch的值，sscratch保存内核栈的地址
     csrrw sp, sscratch, sp
     # now sp->kernel stack, sscratch->user stack
     # allocate a TrapContext on kernel stack
@@ -40,11 +37,7 @@ __alltraps:
     mv a0, sp
     call trap_handler
 
-# 恢复上下文
 __restore:
-    # case1: start running app by __restore
-    # case2: back to U after handling trap
-    mv sp, a0
     # now sp->kernel stack(after allocated), sscratch->user stack
     # restore sstatus/sepc
     ld t0, 32*8(sp)
@@ -63,6 +56,6 @@ __restore:
     .endr
     # release TrapContext on kernel stack
     addi sp, sp, 34*8
-    # now sp->user stack, sscratch->kernel stack
+    # now sp->kernel stack, sscratch->user stack
     csrrw sp, sscratch, sp
     sret
