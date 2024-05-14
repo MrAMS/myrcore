@@ -13,7 +13,7 @@ pub fn get_time() -> usize {
 
 /// get current time in milliseconds
 pub fn get_time_ms() -> usize {
-    time::read() / CLOCK_FREQ * 1000
+    time::read() / (CLOCK_FREQ/1000)
 }
 
 /// set the next timer interrupt
