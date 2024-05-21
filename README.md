@@ -15,15 +15,15 @@ Highly inspired by [rCore](https://github.com/rcore-os/rCore)
 
 ## Usage
 
-Install xmake, qemu, etc. on Linux, and run commands:
+Install xmake, qemu, etc. on Linux and run commands:
 
 ```bash
 # step1: build
 xmake
 
-# step2: run
+# step2: run on qemu
 xmake run run
-# or debug with GDB
+# or debug with gdb
 xmake run debug
 ```
 

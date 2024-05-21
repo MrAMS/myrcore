@@ -1,2 +1,4 @@
 target/
 .xmake/
+build/
+/doc/
