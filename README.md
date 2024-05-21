@@ -18,8 +18,10 @@ Highly inspired by [rCore](https://github.com/rcore-os/rCore)
 Install xmake, qemu, etc. on Linux, and run commands:
 
 ```bash
+# step1: build
 xmake
 
+# step2: run
 xmake run run
 # or debug with GDB
 xmake run debug
