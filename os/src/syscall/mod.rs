@@ -22,7 +22,7 @@ mod process;
 use fs::*;
 use process::*;
 
-use crate::sbi::shutdown;
+use crate::sbi::{SBI, SBIMethod};
 
 /// handle syscall exception with `syscall_id` and other arguments
 pub fn syscall(syscall_id: usize, args: [usize; 3]) -> isize {
@@ -33,7 +33,7 @@ pub fn syscall(syscall_id: usize, args: [usize; 3]) -> isize {
         SYSCALL_GET_TIME => sys_get_time(),
         SYSCALL_HALT => {
             println!("[kernel] Halt");
-            shutdown(false);
+            SBI::shutdown(false);
         }
         _ => panic!("Unsupported syscall_id: {}", syscall_id),
     }

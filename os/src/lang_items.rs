@@ -1,8 +1,9 @@
 //! The panic handler
 
-use crate::sbi::shutdown;
 use core::panic::PanicInfo;
 use log::*;
+
+use crate::sbi::{SBI, SBIMethod};
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
@@ -16,5 +17,5 @@ fn panic(info: &PanicInfo) -> ! {
     } else {
         error!("[kernel] Panicked: {}", info.message().unwrap());
     }
-    shutdown(true)
+    SBI::shutdown(true)
 }

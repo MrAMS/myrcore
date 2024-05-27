@@ -28,12 +28,16 @@ mod console;
 mod config;
 mod lang_items;
 mod loader;
-mod sbi;
 mod sync;
 pub mod syscall;
 pub mod task;
 mod timer;
 pub mod trap;
+
+#[allow(missing_docs)]
+pub mod isa;
+#[allow(missing_docs)]
+pub mod sbi;
 
 global_asm!(include_str!("entry.asm"));
 global_asm!(include_str!("link_app.S"));

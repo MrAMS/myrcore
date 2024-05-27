@@ -1,22 +1,22 @@
 //! RISC-V timer-related functionality
 
 use crate::config::CLOCK_FREQ;
-use crate::sbi::set_timer;
-use riscv::register::time;
+use crate::isa::{ISAMethod, ISA};
+use crate::sbi::{SBIMethod, SBI};
 
 const TIME_SLICE_MS: usize = 1;
 
 /// read the `mtime` register
 pub fn get_time() -> usize {
-    time::read()
+    ISA::get_timer_val() as usize
 }
 
 /// get current time in milliseconds
 pub fn get_time_ms() -> usize {
-    time::read() / (CLOCK_FREQ/1000)
+    ISA::get_timer_val() as usize / (CLOCK_FREQ/1000)
 }
 
 /// set the next timer interrupt
 pub fn set_next_trigger() {
-    set_timer(get_time() + CLOCK_FREQ / 1000 * TIME_SLICE_MS);
+    SBI::set_timer(get_time() + CLOCK_FREQ / 1000 * TIME_SLICE_MS);
 }
