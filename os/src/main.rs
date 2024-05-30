@@ -34,9 +34,7 @@ pub mod task;
 mod timer;
 pub mod trap;
 
-#[allow(missing_docs)]
 pub mod isa;
-#[allow(missing_docs)]
 pub mod sbi;
 
 global_asm!(include_str!("entry.asm"));

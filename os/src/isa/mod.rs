@@ -1,4 +1,4 @@
-#[allow(dead_code)]
+//! ISA
 
 /// Trap Type
 #[derive(Debug)]
@@ -11,7 +11,7 @@ pub enum TrapCause {
     StorePageFault,
     /// ill instruction
     IllegalInstruction,
-    // timer timeout
+    /// timer timeout
     SupervisorTimer,
     /// unkown cause
     Unknown,

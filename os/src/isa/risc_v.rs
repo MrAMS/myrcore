@@ -9,6 +9,7 @@ use riscv::register::{
 
 use riscv::register::time;
 
+/// RISC-V ISA
 pub struct ISA;
 
 impl ISAMethod for ISA {

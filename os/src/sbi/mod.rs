@@ -1,5 +1,4 @@
-///
-/// 
+//! SBI 
 
 /// SBI Methods
 pub trait SBIMethod {
